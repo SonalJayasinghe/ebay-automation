@@ -17,7 +17,6 @@ public class HomePage {
 
     public void openHome(String url) {
         driver.get(url);
-        wait.until(ExpectedConditions.urlContains("ebay.com"));
     }
 
     public void goToElectronicsPage() {

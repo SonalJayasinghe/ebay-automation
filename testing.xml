@@ -1,8 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="eBay Purchase Ekah" verbose="1">
-    <test name="Mobile Phone Purchase Test">
+<suite name="eBay Purchase Ekah" verbose="1" thread-count="2">
+
+    <test name="Mobile Phone Purchase Test - Chrome 1">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TestRunner"/>
         </classes>
     </test>
+
 </suite>

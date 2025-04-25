@@ -11,17 +11,30 @@ public class InitTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    @BeforeClass
-    public void setUp(){
-        //file path is in structure for macos
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/Drivers/chromedriver");
-        driver = new ChromeDriver();
+
+    @Parameters("browser")
+    @BeforeClass(alwaysRun = true)
+    public void setUp(@Optional("chrome") String browser) {
+
+        //macos file structure
+        String base = System.getProperty("user.dir") + "/src/main/resources/drivers/";
+
+        if (browser.equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", base + "chromedriver");
+            driver = new ChromeDriver();
+        }
+
+        else {
+            throw new IllegalArgumentException("Unsupported browser: " + browser);
+        }
+
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    @AfterClass
-    public void tearDown(){
+    @AfterClass(alwaysRun = true)
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(2000);
         if (driver != null) {
             driver.quit();
         }

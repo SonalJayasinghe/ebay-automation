@@ -7,10 +7,37 @@ public class SmartPhonePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    private By filterOption =  By.xpath("//button[@type='button' and contains(@class,'filter-button') and contains(@class,'brwr__all-filters')]");
+    private By screenSizeFilter = By.xpath("//button[contains(@class,'seo-accordion__title-button') and @aria-controls='seo-accordion__sect-7']");
+    private By screenSizeCheckBox = By.xpath("//*[@id=\"seo-accordion__sect-7\"]/div/fieldset/div/ul/li[5]/div/span");
+    private By applyButton = By.xpath("//button[contains(@class,'btn-submit') and contains(normalize-space(.),'Apply')]");
+    private By firstItem = By.xpath("(//a[contains(@class,'brwrvr__item-card__image-link')])[1]");
+
     public SmartPhonePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
+
+    public void clickFilterOption() {
+        wait.until(ExpectedConditions.elementToBeClickable(filterOption)).click();
+    }
+
+    public void clickScreenSizeFilter() {
+        wait.until(ExpectedConditions.elementToBeClickable(screenSizeFilter)).click();
+    }
+
+    public void clickScreenSizeCheckBox() {
+        wait.until(ExpectedConditions.elementToBeClickable(screenSizeCheckBox)).click();
+    }
+
+    public void clickApplyButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(applyButton)).click();
+    }
+
+    public void clickFirstItem() {
+        wait.until(ExpectedConditions.elementToBeClickable(firstItem)).click();
+    }
+
 
 
 }

@@ -15,5 +15,6 @@ public class TestRunner extends InitTest{
 
         SmartPhonePage smartPhonePage = new SmartPhonePage(driver, wait);
         smartPhonePage.clickSeeAll();
+        smartPhonePage.clickFirstProduct();
     }
 }

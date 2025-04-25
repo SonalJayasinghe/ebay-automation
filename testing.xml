@@ -1,0 +1,7 @@
+<suite name="eBay Purchase Ekah" verbose="1.0.0">
+    <test name="Mobile Phone Purchase Test">
+        <classes>
+            <class name="tests.TestRunner"/>
+        </classes>
+    </test>
+</suite>

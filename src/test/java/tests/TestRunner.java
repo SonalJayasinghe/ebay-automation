@@ -45,7 +45,7 @@ public class TestRunner extends InitTest{
     @Test(priority = 1)
     public void openHomeTest() {
         homePage.openHome("https://www.ebay.com/");
-        Assert.assertTrue(driver.getCurrentUrl().contains("ebay.com"), "URL should contain ebay.com");
+        Assert.assertTrue(driver.getCurrentUrl().contains("ebay.com"), "URL should be ebay.com");
     }
 
     @Test(priority = 2)
@@ -59,6 +59,7 @@ public class TestRunner extends InitTest{
         electronicsPage.clickCellPhonesAndSmartPhones();
     }
 
+    //there is no see more button as mentioned in the assignment pdf
     //sometimes this filter button may not visible
     @Test(priority = 4)
     public void applyScreenSizeFilterTest() {
@@ -92,6 +93,10 @@ public class TestRunner extends InitTest{
         String cartPrice = cartPage.verifyProductPrice();
         Assert.assertFalse(cartTitle.isEmpty(), "Cart title should not be empty");
         Assert.assertFalse(cartPrice.isEmpty(), "Cart price should not be empty");
+
+        Assert.assertEquals(cartTitle, productDetailsPage.getProductTitleText(), "Product title in cart should match ");
+        Assert.assertEquals(cartPrice, productDetailsPage.getProductPriceText(), "Product price in cart should match");
+
         cartPage.getSubtotalPrice();
     }
 
@@ -103,7 +108,7 @@ public class TestRunner extends InitTest{
         cartPage.enterGuestEmail(email);
     }
 
-    //maybe face to captcha screen. ehma unot fill the captcha
+    //maybe face to captcha screen. if so fill the captcha quickly
     @Test(priority = 10)
         public void clickGuestButtonTest(){
             cartPage.clickGuestButton();

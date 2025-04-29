@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProductDetailsPage {
     private WebDriver driver;
     private WebDriverWait wait;
+    private String productTitleText;
+    private String productPriceText;
 
     private By productTitle =  By.xpath("//div[@data-testid='x-item-title']//span");
     private By productPrice = By.xpath("//div[@data-testid='x-price-primary']//span");
@@ -18,19 +20,29 @@ public class ProductDetailsPage {
     public String getProductTitle() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(productTitle));
         String title = driver.findElement(productTitle).getText();
-        System.out.println("Product Title: " + title.trim());
-        return title.trim();
+        productTitleText = title.trim();
+        System.out.println("Product Title: " + productTitleText);
+        return productTitleText;
     }
 
     public String getProductPrice() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(productPrice));
         String price = driver.findElement(productPrice).getText();
-        System.out.println("Product Price: " + price.trim());
-        return price.trim();
+        productPriceText = price.trim();
+        System.out.println("Product Price: " + productPriceText);
+        return productPriceText;
     }
 
     public void clickAddToCart() {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+    }
+
+    public String getProductTitleText() {
+        return productTitleText;
+    }
+
+    public String getProductPriceText() {
+        return productPriceText;
     }
 
 

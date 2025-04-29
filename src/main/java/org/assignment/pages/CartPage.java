@@ -12,8 +12,8 @@ public class CartPage {
     private By cartProductPrice = By.xpath("//div[@class='item-price font-title-3']//span");
     private By totalPrice = By.xpath("//div[@class='val-col total-row']//span");
     private By checkout = By.xpath("//button[@data-test-id='cta-top']");
-    private By userIDInput = By.xpath("//input[@id='userid']");
-    private By guestButton = By.xpath("//button[@id='gxo-btn']");
+    private By guestButton = By.id("gxo-btn");
+    private By authiframe = By.id("auth-iframe");
 
     public CartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -43,16 +43,26 @@ public class CartPage {
         wait.until(ExpectedConditions.elementToBeClickable(checkout)).click();
     }
 
-    //there is an issue with this input textbox, thats why i cleared things first
-    public void enterGuestEmail(String guestEmail) {
-        WebElement input = wait.until(ExpectedConditions.elementToBeClickable(userIDInput));
-        input.clear();
-        input.click();
-        input.sendKeys(guestEmail);
-    }
+    //there are two buttons 'Continue as guest' & 'Checkout as guest' appeared randomly on the checkout page.
+    //although buttons has a stable ID ('gxo-btn'), the continue as.. button can directly click but Checkout cannot because its appeared in another iframe html
+    //so i had build this function to work for both scenarios
 
     public void clickGuestButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(guestButton)).click();
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(guestButton)).click();
+
+        } catch (Exception mainPageError) {
+            try {
+                WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(authiframe));
+                driver.switchTo().frame(iframe);
+
+                wait.until(ExpectedConditions.elementToBeClickable(guestButton)).click();
+                driver.switchTo().defaultContent();
+
+            } catch (Exception iframeError) {
+                throw new RuntimeException("Guest button not found in either main page or iframe.");
+            }
+        }
     }
 
 

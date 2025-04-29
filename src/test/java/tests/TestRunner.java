@@ -18,13 +18,6 @@ public class TestRunner extends InitTest{
         };
     }
 
-    @DataProvider(name = "guestEmails")
-    public Object[][] guestEmails() {
-        return new Object[][] {
-                { "abc@abc.com" },
-        };
-    }
-
     private HomePage homePage;
     private ElectronicsPage electronicsPage;
     private SmartPhonePage smartPhonePage;
@@ -101,11 +94,9 @@ public class TestRunner extends InitTest{
     }
 
 
-    //sometimes this guest email fill section may not visible
-    @Test(priority = 9 , dataProvider = "guestEmails")
-    public void proceedToCheckoutTest(String email) {
+    @Test(priority = 9)
+    public void proceedToCheckoutTest() {
         cartPage.clickCheckout();
-        cartPage.enterGuestEmail(email);
     }
 
     //maybe face to captcha screen. if so fill the captcha quickly

@@ -34,7 +34,6 @@ public class InitTest {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
         if (driver != null) {
             driver.quit();
         }

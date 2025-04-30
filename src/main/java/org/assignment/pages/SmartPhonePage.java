@@ -8,9 +8,9 @@ public class SmartPhonePage {
     private final WebDriverWait wait;
 
     private final By filterOption =  By.xpath("//button[@type='button' and contains(@class,'filter-button') and contains(@class,'brwr__all-filters')]");
-    private final By screenSizeFilter = By.xpath("//button[contains(@class,'seo-accordion__title-button') and @aria-controls='seo-accordion__sect-7']");
-    private final By screenSizeCheckBox = By.xpath("//*[@id=\"seo-accordion__sect-7\"]/div/fieldset/div/ul/li[5]/div/span");
-    private final By applyButton = By.xpath("//button[contains(@class,'btn-submit') and contains(normalize-space(.),'Apply')]");
+    private final By screenSizeFilter = By.xpath("//button[h3[@aria-label='Screen Size']]");
+    private final By screenSizeCheckBox = By.xpath("//label[normalize-space()='6 in or More']/preceding-sibling::span");
+    private final By applyButton = By.xpath("//button[contains(@class,'btn-submit') and contains(normalize-space(),'Apply')]");
     private final By firstItem = By.xpath("(//a[contains(@class,'brwrvr__item-card__image-link')])[1]");
 
     public SmartPhonePage(WebDriver driver, WebDriverWait wait) {

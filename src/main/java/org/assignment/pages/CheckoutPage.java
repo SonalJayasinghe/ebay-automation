@@ -7,17 +7,17 @@ public class CheckoutPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By firstName = By.xpath("//input[@name='firstName']");
-    private By lastName = By.xpath("//input[@name='lastName']");
-    private By addressLine1 = By.xpath("//input[@name='addressLine1']");
-    private By addressLine2 = By.xpath("//input[@name='addressLine2']");
-    private By city = By.xpath("//input[@name='city']");
-    private By state = By.xpath("//input[@name='stateOrProvince']");
-    private By zipCode = By.xpath("//input[@name='postalCode']");
-    private By email = By.xpath("//input[@name='email']");
-    private By confirmEmail = By.xpath("//input[@name='emailConfirm']");
-    private By contactNumber = By.xpath("//input[@name='phoneNumber']");
-    private By doneButton = By.xpath("//button[@data-action-name='ADD_ADDRESS_SUBMIT']");
+    private final By firstName = By.xpath("//input[@name='firstName']");
+    private final By lastName = By.xpath("//input[@name='lastName']");
+    private final By addressLine1 = By.xpath("//input[@name='addressLine1']");
+    private final By addressLine2 = By.xpath("//input[@name='addressLine2']");
+    private final By city = By.xpath("//input[@name='city']");
+    private final By state = By.xpath("//input[@name='stateOrProvince']");
+    private final By zipCode = By.xpath("//input[@name='postalCode']");
+    private final By email = By.xpath("//input[@name='email']");
+    private final By confirmEmail = By.xpath("//input[@name='emailConfirm']");
+    private final By contactNumber = By.xpath("//input[@name='phoneNumber']");
+    private final By doneButton = By.xpath("//button[@data-action-name='ADD_ADDRESS_SUBMIT']");
 
     public CheckoutPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;

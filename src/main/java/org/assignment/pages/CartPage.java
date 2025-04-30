@@ -8,12 +8,12 @@ public class CartPage {
     private WebDriverWait wait;
 
 
-    private By cartProductTitle = By.xpath("//h3[@class='item-title text-truncate-multiline black-link lines-2']");
-    private By cartProductPrice = By.xpath("//div[@class='item-price font-title-3']//span");
-    private By totalPrice = By.xpath("//div[@class='val-col total-row']//span");
-    private By checkout = By.xpath("//button[@data-test-id='cta-top']");
-    private By guestButton = By.id("gxo-btn");
-    private By authiframe = By.id("auth-iframe");
+    private final By cartProductTitle = By.xpath("//h3[@class='item-title text-truncate-multiline black-link lines-2']");
+    private final By cartProductPrice = By.xpath("//div[@class='item-price font-title-3']//span");
+    private final By totalPrice = By.xpath("//div[@class='val-col total-row']//span");
+    private final By checkout = By.xpath("//button[@data-test-id='cta-top']");
+    private final By guestButton = By.id("gxo-btn");
+    private final By authiframe = By.id("auth-iframe");
 
     public CartPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;

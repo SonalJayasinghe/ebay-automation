@@ -4,8 +4,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
 
     private final By cartProductTitle = By.xpath("//h3[@class='item-title text-truncate-multiline black-link lines-2']");

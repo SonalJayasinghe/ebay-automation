@@ -5,8 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     private final By electronicsTab = By.xpath("//li[contains(@class,'vl-flyout-nav__js-tab')]//a[text()='Electronics']");
 

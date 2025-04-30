@@ -5,8 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ElectronicsPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     private final By cellPhonesAndAccessoriesLink = By.linkText("Cell Phones & Accessories");
     private final By cellPhonesAndSmartPhones = By.linkText("Cell Phones & Smartphones");

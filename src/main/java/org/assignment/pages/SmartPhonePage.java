@@ -4,8 +4,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SmartPhonePage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     private final By filterOption =  By.xpath("//button[@type='button' and contains(@class,'filter-button') and contains(@class,'brwr__all-filters')]");
     private final By screenSizeFilter = By.xpath("//button[contains(@class,'seo-accordion__title-button') and @aria-controls='seo-accordion__sect-7']");

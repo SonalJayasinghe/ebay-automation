@@ -9,9 +9,9 @@ public class ProductDetailsPage {
     private String productTitleText;
     private String productPriceText;
 
-    private By productTitle =  By.xpath("//div[@data-testid='x-item-title']//span");
-    private By productPrice = By.xpath("//div[@data-testid='x-price-primary']//span");
-    private By addToCartButton = By.xpath("//a[@id='atcBtn_btn_1' and @data-testid='ux-call-to-action']");
+    private final By productTitle =  By.xpath("//div[@data-testid='x-item-title']//span");
+    private final By productPrice = By.xpath("//div[@data-testid='x-price-primary']//span");
+    private final By addToCartButton = By.xpath("//a[@id='atcBtn_btn_1' and @data-testid='ux-call-to-action']");
     public ProductDetailsPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;

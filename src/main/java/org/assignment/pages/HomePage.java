@@ -8,7 +8,7 @@ public class HomePage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    private final By electronicsTab = By.xpath("//li[contains(@class,'vl-flyout-nav__js-tab')]//a[text()='Electronics']");
+    private final By electronicsTab = By.linkText("Electronics");
 
     public HomePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;

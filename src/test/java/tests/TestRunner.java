@@ -1,7 +1,6 @@
 package tests;
 
 import org.assignment.pages.*;
-import org.assignment.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
